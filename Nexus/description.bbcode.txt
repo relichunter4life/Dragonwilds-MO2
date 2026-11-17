@@ -1,0 +1,54 @@
+[center][size=5][b][color=#a970ff]✨ DRAGONWILDS MO2 ✨[/color][/b][/size]
+[size=3][color=#ffd966]Mod Organizer 2, set up for RuneScape: Dragonwilds. Every mod in its place, your game folder left clean.[/color][/size][/center]
+
+[size=4][b][color=#4fc3f7]📦 TWO DOWNLOADS[/color][/b][/size]
+🔹 [b][color=#4fc3f7]Dragonwilds MO2 Stand-alone[/color][/b]
+[i]A complete Mod Organizer 2 (2.5.2), already set up. Unzip it, start it, done.[/i]
+🔹 [b][color=#4fc3f7]Dragonwilds MO2 Support (add-on)[/color][/b]
+[i]Already have MO2 2.5.2? Unzip this into it and pick RuneScape: Dragonwilds.[/i]
+
+[size=4][b][color=#a970ff]🎮 WHAT IT DOES[/color][/b][/size]
+[list]
+[*]📥 [b]Mod Manager Download[/b] on Nexus goes straight into MO2
+[*]🗂 Every mod lands in the right place: UE4SS mods, RuneSchema mods, pak mods
+[*]🔒 [b]Master files[/b] UE4SS, RuneSchema and Mod Menu stay locked at the top
+[*]📜 [b]RuneSchema tab[/b]: your mod list order [i]is[/i] the RuneSchema load order
+[*]🧲 Manual downloads from [b]Nexus and CurseForge[/b] jump into MO2 by themselves
+[*]🏷 Nexus's Dragonwilds [b]categories and separators[/b], set up for you
+[*]📝 Short how-to notes on Relic Hunter's mods
+[*]🧹 Logs and mod data go back into their own mod, not Overwrite
+[*]💾 Profile-specific saves and game settings, like every MO2 game
+[*]🛠 [b]Built-in fixes[/b]: UE4SS starts before the engine, so RuneSchema sees every mod, and Helpy (F2) works
+[*]🐉 Dragonwilds theme, splash screen and a Discord button
+[/list]
+
+[size=4][b][color=#66bb6a]🚀 INSTALL (STAND-ALONE)[/color][/b][/size]
+[list=1]
+[*]📁 Unzip the [b]Dragonwilds MO2[/b] folder outside Program Files, e.g. [color=#ffd966]C:\Modding\Dragonwilds MO2[/color]
+[*]▶ Start [b]ModOrganizer.exe[/b]. Your Steam game is found by itself 🌍
+[*]🔑 Settings (tools icon) > [b]Nexus[/b] > [b]Connect to Nexus[/b]
+[*]📥 Mod Manager Download the three master files below
+[*]🖱 Double-click each download in the [b]Downloads[/b] tab, tick it, press [b]Run[/b] 🎉
+[/list]
+
+[size=4][b][color=#ffb74d]⭐ THE THREE MASTER FILES[/color][/b][/size]
+🔹 [b][color=#ffb74d][url=https://www.nexusmods.com/runescapedragonwilds/mods/4]UE4SS for RSDragonwilds[/url][/color][/b]
+[i]File "UE4SS Steam (latest) 3.0.1-gf6d5f942". Runs every Lua mod.[/i]
+🔹 [b][color=#ffb74d][url=https://www.nexusmods.com/runescapedragonwilds/mods/570]RuneSchema[/url][/color][/b]
+[i]0.9.0.0. Items, quests, buildings and recipes for most big mods.[/i]
+🔹 [b][color=#ffb74d][url=https://www.nexusmods.com/runescapedragonwilds/mods/548]Mod Menu[/url][/color][/b]
+[i]In-game settings for your mods.[/i]
+
+[size=4][b][color=#ff6b6b]⚠ GOOD TO KNOW[/color][/b][/size]
+[list]
+[*]⛔ [b][color=#ff6b6b]Always start the game from MO2[/color][/b]. Starting from Steam skips your mods
+[*]🔁 Mod Manager Download opens Vortex or does nothing? [b]Restart your browser[/b] once
+[*]👯 Modded by hand before? Those mods load twice: clean the game folder (see the README)
+[*]🛡 Antivirus asks about [b]rsdragonwilds_ue4ss_boot.dll[/b]? It's a 1.5 KB helper, source included
+[/list]
+
+[size=4][b][color=#4fc3f7]📖 MORE[/color][/b][/size]
+The README in each download covers what changes in your game folder, every on/off switch, logs and uninstalling. Mod Organizer 2 is free software (GPL v3) by the MO2 team; this is the official 2.5.2 with our Dragonwilds plugin and theme added.
+
+[center][size=3][color=#ffd966]💬 Still stuck? Come say hi:[/color][/size]
+[size=5][b][url=https://discord.gg/BumVNYDUec][color=#7289da]Join our Discord[/color][/url][/b][/size][/center]

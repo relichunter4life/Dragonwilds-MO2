@@ -94,6 +94,8 @@ MASTERS = (
     ("Mod Menu", (UE4SS_MODS + "/ModMenu/Scripts", UE4SS_MODS + "/ModMenu/modmenu.lua")),
 )
 
+MASTER_NEXUS = (4, 570, 548)
+
 DIR = mobase.FileTreeEntry.FileTypes.DIRECTORY
 MERGE = mobase.IFileTree.InsertPolicy.MERGE
 REPLACE = mobase.IFileTree.InsertPolicy.REPLACE
@@ -1367,6 +1369,12 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
                 False,
             ),
             mobase.PluginSetting(
+                "link_nexus_ids",
+                "Give known Dragonwilds mods (UE4SS, RuneSchema, Mod Menu and Relic Hunter's mods) their Nexus "
+                "mod ID when it is missing, so Nexus Info, Open in Browser and update checks work.",
+                True,
+            ),
+            mobase.PluginSetting(
                 "match_nexus_versions",
                 "When a Nexus file's own version is higher than its mod page version, show the mod page version "
                 "(removes MO2's red 'newer than Nexus' warning triangle).",
@@ -1845,7 +1853,33 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
             self.sync_now()
         except Exception:
             pass
+        self._link_nexus_ids()
         self._fix_versions()
+
+    def _link_nexus_ids(self) -> int:
+        if not self.isActive() or self._running or not self._setting("link_nexus_ids"):
+            return 0
+        entries = load_notes()
+        modlist = self._organizer.modList()
+        linked = 0
+        for name in modlist.allMods():
+            mod = modlist.getMod(name)
+            if mod is None or mod.isSeparator() or mod.isOverwrite() or mod.isForeign() or mod.isBackup():
+                continue
+            try:
+                if int(mod.nexusId()) > 0:
+                    continue
+                rank = master_rank(mod.fileTree())
+                nexus = MASTER_NEXUS[rank] if 0 <= rank < len(MASTER_NEXUS) else None
+                if nexus is None:
+                    entry = match_note(mod, entries) if entries else None
+                    nexus = entry.get("nexus_id") if entry else None
+                if nexus:
+                    mod.setNexusID(int(nexus))
+                    linked += 1
+            except Exception:
+                pass
+        return linked
 
     def _link_source_page(self, mod: mobase.IModInterface):
         try:

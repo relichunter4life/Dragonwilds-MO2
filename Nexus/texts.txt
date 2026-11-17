@@ -1,0 +1,17 @@
+MOD NAME
+Dragonwilds MO2 - Mod Organizer 2 for RuneScape Dragonwilds
+
+SUMMARY (short description)
+Mod Organizer 2, set up for RuneScape: Dragonwilds. Every mod lands in the right place (UE4SS, RuneSchema, pak mods), your mod list sets the RuneSchema load order, and Nexus or CurseForge downloads go straight in. Comes as a ready-to-go stand-alone MO2 or an add-on.
+
+CATEGORY
+Utilities
+
+FILE 1 (main): Dragonwilds-MO2-Standalone-1.0.0.zip  -  display name "Dragonwilds MO2 Stand-alone 1.0.0"
+A complete Mod Organizer 2 2.5.2 already set up for RuneScape: Dragonwilds, with the Dragonwilds plugin, theme, categories and separators. Unzip it outside Program Files and start ModOrganizer.exe.
+
+FILE 2 (main): Dragonwilds-MO2-Support-1.0.0.zip  -  display name "Dragonwilds MO2 Support 1.0.0 (add-on)"
+Add-on for an MO2 2.5.2 you already have: unzip it into the MO2 folder, then create a new instance for RuneScape: Dragonwilds. Adds the game plugin, UE4SS boot fix and the Dragonwilds theme.
+
+AI NOTE
+Code written with Claude Ai, designed and tested by Relic Hunter.
