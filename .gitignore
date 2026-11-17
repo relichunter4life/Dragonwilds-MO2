@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+release/
+theme/splash_chatgpt_original.png
+tools/import_live_mods.py
+tools/make_test_instance.py

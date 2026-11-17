@@ -1,0 +1,11 @@
+Make a 1200x675 (16:9) PNG splash screen for "Mod Organizer 2" themed on the game RuneScape: Dragonwilds.
+
+Scene: a painterly fantasy landscape in the style of RuneScape: Dragonwilds concept art - the misty mountains and autumn-red valleys of Ashenfall, a great dragon silhouette in the sky, warm sunset light. Keep it bright with only a light vignette at the edges.
+
+Text, centred in the upper half, and nothing else:
+- "RUNESCAPE" (smaller, white-to-stone gradient)
+- "DRAGONWILDS" (large, gold-to-deep-orange gradient, thick black outline, soft drop shadow) in an Old School RuneScape style font
+- a thin orange-gold line under it
+- "MOD ORGANIZER 2" (bone white)
+
+No other words, no logos, no watermark. Leave the bottom 15% calm (MO2 draws a loading bar there).

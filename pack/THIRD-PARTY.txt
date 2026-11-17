@@ -1,0 +1,29 @@
+Made by Claude Ai & Relic Hunter
+
+RuneScape: Dragonwilds - Mod Organizer 2 Support: licenses and credits
+======================================================================
+
+OUR FILES
+The Dragonwilds game plugin (game_rsdragonwilds.py, rsdragonwilds_notes.json,
+rsdragonwilds_ue4ss_boot.dll and its source build_bootstrap_dll.py) and the
+Transparent-Style-Dragonwilds theme are released under the GNU General Public License v3,
+the same license as Mod Organizer 2.
+A copy of the GPL v3 is in MO2's licenses folder (GPL-v3.0.txt).
+
+MOD ORGANIZER 2 (stand-alone download only)
+The stand-alone download contains the unmodified official Mod Organizer 2 v2.5.2 release
+by the Mod Organizer 2 team, licensed under the GPL v3. Source code:
+- https://github.com/ModOrganizer2/modorganizer/releases/tag/v2.5.2
+- All component sources (uibase, usvfs, plugin_python, basic_games, installers, game plugins):
+  https://github.com/ModOrganizer2
+The licenses of MO2 and its bundled libraries (Qt, Python, 7-Zip, LOOT, Explorer++ and others)
+are in the licenses folder.
+
+THEME
+- Based on the Transparent-Style theme that ships with Mod Organizer 2.
+- Font: "RuneScape Bold 12", from the RuneStar recreations of the RuneScape fonts
+  (public domain). RuneScape is a registered trademark of Jagex Ltd.
+- Background images are made from RuneScape: Dragonwilds concept art (c) Jagex Ltd.,
+  used in a free, non-commercial fan theme. The splash screen artwork was made with ChatGPT
+  and shows the RuneScape: Dragonwilds name, (c) Jagex Ltd.
+This project is a fan creation and is not made, endorsed or supported by Jagex Ltd.

@@ -1,0 +1,419 @@
+/* Made by Claude Ai & Relic Hunter */
+#centralWidget {
+    background-color: #0e0b08;
+    background-image: url(./Transparent-Style/Dragonwilds/bg_main.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+QWidget {
+    color: #e8dcc4;
+    background-color: rgba(0, 0, 0, 0);
+    alternate-background-color: rgba(240, 180, 76, 14);
+    selection-background-color: rgba(217, 83, 30, 120);
+    selection-color: #fff4dc;
+}
+QMainWindow, QStatusBar {
+    background-color: #0e0b08;
+}
+QAbstractItemView {
+    color: #f3ead6;
+    background-color: rgba(10, 8, 6, 135);
+    alternate-background-color: rgba(240, 180, 76, 16);
+    border: 1px solid rgba(240, 180, 76, 120);
+    border-radius: 4px;
+    outline: none;
+}
+#ProblemsDialog, #TransferSavesDialog, #SettingsDialog, #ModInfoDialog, #TextViewer, #PyCfgDialog,
+#InstallDialog, #EditExecutablesDialog, #ProfilesDialog, #FomodInstallerDialog, #CategoriesDialog,
+#OverwriteInfoDialog, #ListDialog, #CreateInstanceDialog, #InstanceManagerDialog {
+    border-image: url(./Transparent-Style/Dragonwilds/bg_dialog.jpg) 0 0 0 0 stretch stretch;
+}
+QDialog {
+    background-color: #120e0a;
+}
+#SimpleInstallDialog, #LockedDialog, QMenu {
+    background-image: url(./Transparent-Style/Dragonwilds/bg_menu.jpg);
+    border: 1px solid #f0b44c;
+}
+#nameLabel {
+    background-color: rgba(240, 180, 76, 22);
+    border-top: 1px solid #8c6a34;
+    border-bottom: 1px solid #8c6a34;
+}
+QToolBar {
+    border: none;
+    background-color: rgba(10, 8, 6, 140);
+}
+QToolBar::separator {
+    image: url(./Transparent-Style/Dragonwilds/rune.png);
+}
+QToolButton {
+    border: 1px solid transparent;
+    border-radius: 6px;
+    margin: 3px;
+    padding: 0px 8px 2px 8px;
+}
+QToolButton:hover {
+    border: 1px solid #f0b44c;
+    background-color: rgba(240, 180, 76, 40);
+}
+QToolButton:pressed {
+    background-color: rgba(217, 83, 30, 120);
+}
+QToolButton::menu-indicator:pressed, QToolButton::menu-indicator:open {
+    image: url(./Transparent-Style/Dragonwilds/arrow-right.png);
+}
+QTabWidget::pane {
+    background-color: rgba(10, 8, 6, 90);
+    border: 1px solid rgba(240, 180, 76, 90);
+    border-radius: 4px;
+    top: -1px;
+}
+QTabWidget::tab-bar {
+    alignment: center;
+}
+QTabBar {
+    font-family: "RuneScape Bold 12";
+    font-size: 16px;
+}
+QTabBar::tab {
+    color: #bfae8c;
+    background-color: rgba(14, 11, 8, 220);
+    border: 1px solid #6e5430;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 4px 18px 3px 18px;
+    margin-right: 2px;
+}
+QTabBar::tab:selected {
+    color: #ffd678;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 rgba(217, 83, 30, 170), stop: 1 rgba(14, 11, 8, 230));
+    border-color: #f0b44c;
+}
+QTabBar::tab:!selected:hover {
+    color: #ffe9b8;
+    border-color: #f0b44c;
+}
+QTabBar::tab:disabled {
+    color: #6e5f4a;
+}
+QTabBar QToolButton {
+    border: 1px solid #f0b44c;
+    background-color: rgba(14, 11, 8, 220);
+    padding: 1px;
+    margin: 0;
+}
+QTabBar QToolButton::right-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-right.png);
+}
+QTabBar QToolButton::left-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-left.png);
+}
+QHeaderView {
+    background-color: transparent;
+}
+QHeaderView::section {
+    color: #f0b44c;
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: bold;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 rgba(40, 30, 20, 235), stop: 1 rgba(14, 11, 8, 235));
+    border: none;
+    border-right: 1px solid #4a3a24;
+    border-bottom: 1px solid #f0b44c;
+    padding: 2px 4px 2px 6px;
+}
+QHeaderView::section:hover {
+    color: #ffd678;
+    background-color: rgba(217, 83, 30, 120);
+}
+QHeaderView::up-arrow, QHeaderView::down-arrow {
+    subcontrol-origin: content;
+    subcontrol-position: center right;
+    width: 9px;
+    height: 9px;
+    margin-right: 6px;
+}
+QHeaderView::up-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-up.png);
+}
+QHeaderView::down-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-down.png);
+}
+QAbstractItemView::item:hover, QTreeWidget::item:hover, QListView::item:hover {
+    color: #fff4dc;
+    background-color: rgba(240, 180, 76, 38);
+}
+QTreeView::item {
+    padding: 3px;
+}
+QTreeView::item:selected, QListView::item:selected, QTableView::item:selected {
+    color: #fff4dc;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 rgba(217, 83, 30, 150), stop: 1 rgba(240, 180, 76, 60));
+    border-top: 1px solid rgba(255, 214, 120, 120);
+    border-bottom: 1px solid rgba(255, 214, 120, 120);
+}
+QTreeView::branch:closed:has-children {
+    image: url(./Transparent-Style/Dragonwilds/branch-closed.png);
+}
+QTreeView::branch:open:has-children {
+    image: url(./Transparent-Style/Dragonwilds/branch-open.png);
+}
+QAbstractItemView[filtered=true] {
+    border: 2px solid #d9531e !important;
+}
+QMenu {
+    border: 1px solid #f0b44c;
+    padding: 4px;
+}
+QMenu::item {
+    padding: 6px 22px;
+    border-radius: 3px;
+}
+QMenu::item:selected, QMenuBar::item:selected {
+    color: #fff4dc;
+    background-color: rgba(217, 83, 30, 140);
+}
+QMenu::separator {
+    height: 1px;
+    background: #6e5430;
+    margin: 4px 8px;
+}
+QMenu::right-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-right.png);
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    padding-right: 0.5em;
+}
+QMenuBar {
+    background-color: rgba(10, 8, 6, 200);
+}
+QLCDNumber {
+    color: #ffd678;
+    background-color: rgba(10, 8, 6, 190);
+    border: 1px solid #f0b44c;
+    border-radius: 3px;
+}
+QComboBox {
+    color: #e8dcc4;
+    background-color: rgba(14, 11, 8, 220);
+    border: 1px solid #8c6a34;
+    border-radius: 5px;
+    padding: 3px 6px;
+    min-height: 20px;
+}
+QComboBox:hover {
+    border-color: #f0b44c;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+    border: none;
+}
+QComboBox::down-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-down.png);
+}
+QComboBox QAbstractItemView {
+    background-color: #120e0a;
+    border: 1px solid #f0b44c;
+    selection-background-color: rgba(217, 83, 30, 150);
+}
+QPushButton {
+    color: #ffe9b8;
+    font-family: "RuneScape Bold 12";
+    font-size: 16px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 rgba(70, 50, 28, 230), stop: 1 rgba(28, 20, 12, 230));
+    border: 1px solid #b08240;
+    border-radius: 5px;
+    padding: 4px 12px;
+}
+QPushButton:hover {
+    color: #fff4dc;
+    border-color: #ffd678;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 rgba(217, 83, 30, 210), stop: 1 rgba(90, 36, 14, 230));
+}
+QPushButton:pressed, QPushButton:open {
+    background-color: rgba(217, 83, 30, 230);
+}
+QPushButton:!enabled {
+    color: #6e5f4a;
+    border-color: #4a3a24;
+    background-color: rgba(20, 16, 12, 200);
+}
+QPushButton::menu-indicator {
+    image: url(./Transparent-Style/Dragonwilds/arrow-down.png);
+    subcontrol-origin: padding;
+    subcontrol-position: center right;
+    padding-right: 5px;
+}
+QDialog QPushButton {
+    min-width: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+QPushButton#startButton {
+    font-size: 22px;
+    color: #fff4dc;
+    border: 2px solid #ffd678;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #e06a2a, stop: 1 #8a2a0e);
+}
+QPushButton#startButton:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f08a3a, stop: 1 #a8360f);
+}
+QPushButton#displayCategoriesBtn {
+    min-width: 20px;
+}
+QScrollBar {
+    background-color: rgba(10, 8, 6, 120);
+    width: 14px;
+    height: 14px;
+}
+QScrollBar::handle {
+    border: 1px solid #8c6a34;
+    border-radius: 5px;
+}
+QScrollBar::handle:vertical {
+    min-height: 24px;
+    margin: 2px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #f0b44c, stop: 1 #9a5a20);
+}
+QScrollBar::handle:horizontal {
+    min-width: 24px;
+    margin: 2px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #f0b44c, stop: 1 #9a5a20);
+}
+QScrollBar::handle:hover {
+    background-color: #ffd678;
+}
+QScrollBar::add-page, QScrollBar::sub-page {
+    background-color: transparent;
+}
+QScrollBar::add-line, QScrollBar::sub-line {
+    height: 0;
+    width: 0;
+}
+QGroupBox::indicator, QTreeView::indicator, QListView::indicator, QCheckBox::indicator {
+    width: 20px;
+    height: 20px;
+}
+QGroupBox::indicator:checked, QTreeView::indicator:checked, QListView::indicator:checked, QCheckBox::indicator:checked,
+QGroupBox::indicator:indeterminate, QTreeView::indicator:indeterminate, QCheckBox::indicator:indeterminate {
+    image: url(./Transparent-Style/Dragonwilds/checkbox-checked.png);
+}
+QGroupBox::indicator:checked:hover, QTreeView::indicator:checked:hover, QListView::indicator:checked:hover, QCheckBox::indicator:checked:hover {
+    image: url(./Transparent-Style/Dragonwilds/checkbox-checked-hover.png);
+}
+QGroupBox::indicator:unchecked, QTreeView::indicator:unchecked, QListView::indicator:unchecked, QCheckBox::indicator:unchecked {
+    image: url(./Transparent-Style/Dragonwilds/checkbox.png);
+}
+QGroupBox::indicator:unchecked:hover, QTreeView::indicator:unchecked:hover, QListView::indicator:unchecked:hover, QCheckBox::indicator:unchecked:hover {
+    image: url(./Transparent-Style/Dragonwilds/checkbox-hover.png);
+}
+QGroupBox::indicator:unchecked:disabled, QTreeView::indicator:unchecked:disabled, QCheckBox::indicator:unchecked:disabled {
+    image: url(./Transparent-Style/Dragonwilds/checkbox-disabled.png);
+}
+QGroupBox::indicator:checked:disabled, QTreeView::indicator:checked:disabled, QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:indeterminate:disabled, QTreeView::indicator:indeterminate:disabled, QCheckBox::indicator:indeterminate:disabled {
+    image: url(./Transparent-Style/Dragonwilds/checkbox-checked-disabled.png);
+}
+QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+}
+QRadioButton::indicator:checked {
+    image: url(./Transparent-Style/Dragonwilds/radio-checked.png);
+}
+QRadioButton::indicator:checked:hover {
+    image: url(./Transparent-Style/Dragonwilds/radio-checked-hover.png);
+}
+QRadioButton::indicator:unchecked {
+    image: url(./Transparent-Style/Dragonwilds/radio.png);
+}
+QRadioButton::indicator:unchecked:hover {
+    image: url(./Transparent-Style/Dragonwilds/radio-hover.png);
+}
+QTreeView#modList::item, QTreeView#espList::item, QTreeWidget#runeschemaOrder::item, QListView::item {
+    padding: .25em 0;
+}
+QTreeWidget#categoriesGroup, QTreeWidget#categoriesList {
+    min-width: 200px;
+}
+QAbstractSpinBox {
+    min-height: 24px;
+    background-color: rgba(14, 11, 8, 220);
+    border: 1px solid #8c6a34;
+    border-radius: 4px;
+}
+QAbstractSpinBox::up-button, QAbstractSpinBox::down-button {
+    border: none;
+    subcontrol-origin: padding;
+}
+QAbstractSpinBox::up-button {
+    subcontrol-position: top right;
+}
+QAbstractSpinBox::down-button {
+    subcontrol-position: bottom right;
+}
+QAbstractSpinBox::up-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-up.png);
+}
+QAbstractSpinBox::down-arrow {
+    image: url(./Transparent-Style/Dragonwilds/arrow-down.png);
+}
+QToolTip {
+    color: #e8dcc4;
+    background-color: transparent;
+    padding: 0px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: url(./Transparent-Style/Dragonwilds/border-image.png) 27 repeat repeat;
+}
+SaveGameInfoWidget {
+    color: #e8dcc4;
+    background-color: transparent;
+}
+QStatusBar::item {
+    border: none;
+}
+QLineEdit, QTextEdit, QPlainTextEdit {
+    color: #f3ead6;
+    background-color: rgba(10, 8, 6, 210);
+    border: 1px solid #8c6a34;
+    border-radius: 4px;
+    padding-left: 3px;
+    selection-background-color: rgba(217, 83, 30, 150);
+}
+QLineEdit:focus, QTextEdit:focus {
+    border-color: #f0b44c;
+}
+QLineEdit[valid-filter=false] {
+    background-color: #5a140c !important;
+}
+LinkLabel {
+    qproperty-linkColor: #ffb85c;
+}
+QSplitter::handle {
+    background-color: rgba(240, 180, 76, 60);
+}
+QMenu, QTextEdit, QLineEdit, QComboBox, QAbstractItemView, QAbstractSpinBox, QGroupBox, QCheckBox, QRadioButton, QLabel, QStatusBar {
+    font-family: "Segoe UI";
+    font-size: 12px;
+}
+QLabel {
+    color: #d8cab0;
+}
+QGroupBox {
+    border: 1px solid #6e5430;
+    border-radius: 5px;
+    margin-top: 14px;
+    padding-top: 6px;
+}
+QGroupBox::title {
+    color: #f0b44c;
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 4px;
+}

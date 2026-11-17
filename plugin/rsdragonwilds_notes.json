@@ -1,0 +1,246 @@
+[
+  {
+    "name": "Art of the Steal",
+    "nexus_id": 900,
+    "folders": [
+      "Lockpicking"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Every chest is locked: beat a tense lock minigame, pick pockets, and build Merchant Tents that trade for Gold Pieces.",
+    "use": "Aim at a locked chest, press E. Space or W strikes, R auto, Q/E swap picks. F picks pockets. Tents: build menu, Construction 5.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Astral Companions",
+    "nexus_id": 850,
+    "folders": [
+      "AstralCompanions"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Up to ten Astral Companions: Workers, Warrior, Barbarian, Mages, Archer and Bounty Hunter. They follow, fight, gather, level up.",
+    "use": "Craft an Astral Worker Scroll at the Crafting Table and read it. E (or G) talks to a companion. Read the Summoning Scroll to command.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Cape Effects (The Capes of Wild Dragons)",
+    "nexus_id": 709,
+    "folders": [
+      "CapeEffects"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Every cape gets a real power: class capes boost full armour sets, skillcapes multiply yields, Gilded Paladin saves your life.",
+    "use": "No keys: just wear a cape. Its item card shows what it does. With RuneSchema you can also craft the Gilded Paladin cape.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Champion of the Gods",
+    "nexus_id": 741,
+    "folders": [
+      "ChampionOfTheGods"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Win the favour of ten gods: raise their shrines, pray for blessings, beat each god's trial, then trade with the gods.",
+    "use": "Talk to Brother Aldwin at the Temple Woods chapel for shrine plans. Build: General > God Shrines. G opens a shrine.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Character Origins",
+    "nexus_id": 747,
+    "folders": [
+      "CharacterOrigins"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Postie Pete greets every new character: pick a past, a discipline, a Birth Rune and traits, then grow your Devotion.",
+    "use": "Talk to Postie Pete (E, or G). Z = Technique, V = second path Technique, X = Birth Rune power. Review: Esc > CHARACTER ORIGINS.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Custom World Edits for All",
+    "nexus_id": null,
+    "folders": [
+      "CustomWorldEdits"
+    ],
+    "needs": [
+      "UE4SS",
+      "Mod Menu"
+    ],
+    "note": "Every Custom-mode world setting for any world: build anywhere, unlock recipes, tune damage, XP and enemies. No restart.",
+    "use": "Esc > MODS > Custom World Edits for All. Flip switches or turn on a slider group. One button puts your world's own values back.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Dynamic Display Enhancements",
+    "nexus_id": 802,
+    "folders": [
+      "DynamicDisplayEnhancements"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Photo-editor look for the whole game: light and colour sliders, 16 filters, presets, day cycles, background blur, telescope.",
+    "use": "Esc > DYNAMIC DISPLAY ENHANCEMENTS. Hold + / - to zoom the telescope. Shift or Alt + arrow keys move the camera.",
+    "category": "User Interface"
+  },
+  {
+    "name": "Elemental Totems",
+    "nexus_id": 898,
+    "folders": [
+      "ElementalTotems"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Fire, Water, Earth and Air Protection Totems that blast enemies with staff attacks, plus a Lightning Rod that calls lightning.",
+    "use": "Build: Furniture > Elemental Totems. E turns a totem on or off, F fuels it with its runes. F fuels a Lightning Rod with Nature Runes.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Enemies Re-Ignited: Wilds of Ashenfall",
+    "nexus_id": 706,
+    "folders": [
+      "EnemiesReIgnited"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "A living Ashenfall: about 700 creature spots, day and night spawns, rare finds, a mini boss per zone. Most enemies wait until hit.",
+    "use": "No keys. Settings: Esc > MODS > Enemies Re-Ignited (or config.txt). World settings moved to Custom World Edits.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Game Dump",
+    "nexus_id": null,
+    "folders": [
+      "GameDump"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Modder tool: dumps every game class and function (Lua types and SDK) once per new game build.",
+    "use": "Runs by itself at the main menu after a game update. Ctrl+F12 in a world, or the console command gamedump, dumps now.",
+    "category": "Utilities"
+  },
+  {
+    "name": "JAQLO - Journal Achievement Quest Log Overhaul",
+    "nexus_id": 662,
+    "folders": [
+      "JAQLO"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Your guide inside the game's Journal and Map: achievements, notes, quest walkthroughs, a map legend, markers and more.",
+    "use": "Esc > JAQLO or Num +. Map: L opens the legend, T twice on a quest teleports. F7 twice on a bag item scraps the stack.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Living Wilds Audio",
+    "nexus_id": null,
+    "folders": [
+      "LivingWildsAudio"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "A full remix of the game's own sounds: loud footsteps, punchy hits, a living world, surround bass and Sneak Listening.",
+    "use": "No keys. Settings > Audio > Living Wilds Audio, or Esc > MODS. First start boots with Music and Sound at 0: turn them up.",
+    "category": "Audio"
+  },
+  {
+    "name": "Penguin Assassin",
+    "nexus_id": 894,
+    "folders": [
+      "PenguinAssassin"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "The Penguin outfit becomes an assassin set: Agility-scaled Defence, faster sneaking, parry crits and a poison cape.",
+    "use": "No keys: wear the Penguin Helmet, Body, Legs and Cape. Item cards show the bonuses. Crouch for the cape's aura.",
+    "category": "Armour"
+  },
+  {
+    "name": "Perks of Ashenfall",
+    "nexus_id": 852,
+    "folders": [
+      "PerksOfAshenfall"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "A full RPG class and perk system: 137 perks over 4 classes, 12 masteries and the Trades, bought with Perk Points.",
+    "use": "Shift+L opens the class wheel and perk trees. Settings: Esc > MODS (Mod Menu, optional) or config.txt.",
+    "category": "Gameplay"
+  },
+  {
+    "name": "Portable Chests - Outfit Swap and Auto-Sort",
+    "nexus_id": 883,
+    "folders": [
+      "OutfitSetBags"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "Chests you carry: Set Chests swap whole outfits, Auto-Sort Chests store what you gather and work as linked storage.",
+    "use": "Craft at the Workbench (Auto-Sort & Set Chests, 6 Ash Logs). Open one from your pack to manage it, or from the hotbar to use it.",
+    "category": "Items"
+  },
+  {
+    "name": "RS Spawner",
+    "nexus_id": null,
+    "folders": [
+      "RSSpawner"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Spawn any of 120 creatures, mini bosses, dragons or bosses. They stay calm until you attack them.",
+    "use": "Esc > SPAWNER. Pick a tab, set Amount and Level, click a name. Remove Nearest or Remove All cleans up.",
+    "category": "Utilities"
+  },
+  {
+    "name": "Relic Hunter UI",
+    "nexus_id": 869,
+    "folders": [
+      "RelicHunterUI",
+      "RelicHunterUI_Bag"
+    ],
+    "needs": [
+      "UE4SS",
+      "RuneSchema"
+    ],
+    "note": "SkyUI-style inventory with an RS3 look: buffs, skills, sort, stacks of 99, action bars, a Spell Book. Enemies freeze in menus.",
+    "use": "F9 Hotbar Setup, P Spell Book, F3 hide HUD, 1-8 use your bars (Alt + wheel pages), C sort, G combine. Esc > MODS page.",
+    "category": "User Interface"
+  },
+  {
+    "name": "Relic's PhotoMode",
+    "nexus_id": 801,
+    "folders": [
+      "RelicPhotoMode"
+    ],
+    "needs": [
+      "UE4SS"
+    ],
+    "note": "Photo mode that freezes time: free camera, lens and pose controls, filters, RuneScape frames, stickers and your own text.",
+    "use": "Esc > PHOTO MODE, or F8 for an instant freeze frame. WASD flies, I hides the menu, F12 takes a Steam screenshot.",
+    "category": "Visuals"
+  }
+]
