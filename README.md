@@ -15,6 +15,16 @@ Get them from the [Releases](../../releases) page:
 | `Dragonwilds-MO2-Standalone-1.0.0.zip` | A complete, ready-to-go MO2 2.5.2 for Dragonwilds. Unzip it and start it. |
 | `Dragonwilds-MO2-Support-1.0.0.zip` | An add-on for an MO2 2.5.2 you already have. |
 
+## Supported files from Nexus
+
+Install these in MO2 first. Dragonwilds MO2 locks them at the top of your mod list as **Master Files**. Click **Mod Manager Download** on each page and MO2 picks them up.
+
+| Mod | File to get | Why |
+|---|---|---|
+| [UE4SS for RSDragonwilds](https://www.nexusmods.com/runescapedragonwilds/mods/4?tab=files&file_id=2111) | **UE4SS Steam (latest)** 3.0.1-gf6d5f942 | Runs every Lua mod |
+| [RuneSchema](https://www.nexusmods.com/runescapedragonwilds/mods/570?tab=files&file_id=3921) | **RuneSchema** 0.9.0.0 (latest) | Loads RuneSchema item, recipe and building mods |
+| [Mod Menu](https://www.nexusmods.com/runescapedragonwilds/mods/548?tab=files&file_id=3683) | **Mod Menu** 2.0.3 | In-game settings for your mods |
+
 ## Features
 
 - **Installs in the right place:** UE4SS mods go to `ue4ss/Mods`, RuneSchema core and content to `ue4ss/Mods/RuneSchema/mods`, and pak mods to `Content/Paks/~mods`. A mod that ships both a mod folder and a RuneSchema folder stays one entry.
