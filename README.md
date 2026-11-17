@@ -62,7 +62,7 @@ Both READMEs (`pack/`) explain:
 ## Links
 
 - Discord: [discord.gg/BumVNYDUec](https://discord.gg/BumVNYDUec)
-- Nexus: [RuneScape: Dragonwilds](https://www.nexusmods.com/runescapedragonwilds)
+- Nexus: [Dragonwilds MO2](https://www.nexusmods.com/runescapedragonwilds/mods/916)
 
 ## License
 
