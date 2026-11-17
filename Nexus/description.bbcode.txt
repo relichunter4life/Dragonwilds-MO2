@@ -1,4 +1,9 @@
-[center][size=5][b][color=#a970ff]✨ DRAGONWILDS MO2 ✨[/color][/b][/size]
+[center][img]https://raw.githubusercontent.com/relichunter4life/Dragonwilds-MO2/main/images/dragonwilds-mo2-banner.jpg[/img]
+
+[size=6][b][url=https://github.com/relichunter4life/Dragonwilds-MO2/releases/tag/v1.0.0][color=#66bb6a]⬇ DOWNLOAD ON GITHUB ⬇[/color][/url][/b][/size]
+[size=3][color=#ffd966]Both files (Stand-alone + Support add-on) are on our GitHub release page.[/color][/size]
+
+[size=5][b][color=#a970ff]✨ DRAGONWILDS MO2 ✨[/color][/b][/size]
 [size=3][color=#ffd966]Mod Organizer 2, set up for RuneScape: Dragonwilds. Every mod in its place, your game folder left clean.[/color][/size][/center]
 
 [size=4][b][color=#4fc3f7]📦 TWO DOWNLOADS[/color][/b][/size]
