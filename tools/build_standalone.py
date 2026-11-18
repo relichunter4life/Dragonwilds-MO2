@@ -4,7 +4,7 @@ import sys
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 MO2 = sys.argv[1] if len(sys.argv) > 1 else r"D:\Modding\MO2-Dragonwilds"
 TOP = "Dragonwilds MO2"
 OUT = os.path.join(ROOT, "release", f"Dragonwilds-MO2-Standalone-{VERSION}.zip")
@@ -32,6 +32,7 @@ version=2.5.2
 [Settings]
 style=Transparent-Style-Dragonwilds.qss
 log_level=1
+profile_local_inis=false
 """
 
 

@@ -1,6 +1,6 @@
 Made by Claude Ai & Relic Hunter
 
-RuneScape: Dragonwilds - Mod Organizer 2 Support 1.0.1
+RuneScape: Dragonwilds - Mod Organizer 2 Support 1.0.2
 =======================================================
 
 Mod Organizer 2 (MO2) keeps every mod in its own folder instead of copying it into the game.
@@ -67,8 +67,13 @@ Mods copied straight into the game folder still load and will show up twice next
 copies. For a clean start: delete RSDragonwilds\Binaries\Win64\ue4ss and dwmapi.dll from the
 game folder, then use Steam > Verify integrity of game files.
 
+UPDATES
+Once a day MO2 checks GitHub for a newer Dragonwilds MO2 and asks "Update now?". It replaces
+only the Dragonwilds plugin and theme files. Close and reopen MO2 to finish. If MO2 is in a
+protected folder (Program Files), unzip the new Support zip by hand instead.
+
 TURNING FEATURES OFF
-Settings > Plugins > RuneScape Dragonwilds Support: auto_install (off by default),
+Settings > Plugins > RuneScape Dragonwilds Support: check_updates, auto_install (off by default),
 forward_downloads, mod_separators / separators_made, mod_categories, mod_notes,
 sort_overwrite, match_nexus_versions, lock_master_files, follow_mod_order, discord_panel,
 helpy_mirror.

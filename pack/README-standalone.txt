@@ -1,6 +1,6 @@
 Made by Claude Ai & Relic Hunter
 
-RuneScape: Dragonwilds - Mod Organizer 2 (Stand-alone) 1.0.1
+RuneScape: Dragonwilds - Mod Organizer 2 (Stand-alone) 1.0.2
 =============================================================
 
 A ready-to-go Mod Organizer 2 (MO2) for Dragonwilds. Unzip it, start it, download mods
@@ -71,8 +71,18 @@ Mods copied straight into the game folder still load and will show up twice next
 copies. For a clean start: delete RSDragonwilds\Binaries\Win64\ue4ss and dwmapi.dll from the
 game folder, then use Steam > Verify integrity of game files.
 
+UPDATES
+Once a day MO2 checks GitHub for a newer Dragonwilds MO2. When there is one it asks
+"Update now?": it downloads the update and replaces only the Dragonwilds plugin and theme
+files (mods, profiles, downloads and settings are not touched). Close and reopen MO2 to finish.
+
+GAME SETTINGS
+The game always uses its normal settings files (%LOCALAPPDATA%\RSDragonwilds\Saved\Config\Windows),
+the same ones it uses when started from Steam, so graphics and keys match.
+
 TURNING FEATURES OFF
 Settings > Plugins > RuneScape Dragonwilds Support:
+- check_updates - the daily update check
 - auto_install (off by default) - install and switch on every finished download
 - forward_downloads - manual downloads moved into MO2
 - mod_separators / separators_made - category separators (untick separators_made to regroup)

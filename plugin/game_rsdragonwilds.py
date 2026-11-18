@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import html
+import io
 import json
 import os
 import re
@@ -27,6 +28,7 @@ from PyQt6.QtCore import (
     pyqtSignal,
 )
 from PyQt6.QtGui import QDesktopServices, QDropEvent, QFontDatabase, QIcon
+from PyQt6.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt6.QtWidgets import (
     QAbstractItemView,
     QCheckBox,
@@ -35,6 +37,7 @@ from PyQt6.QtWidgets import (
     QLabel,
     QMainWindow,
     QMessageBox,
+    QProgressDialog,
     QPushButton,
     QTabWidget,
     QToolBar,
@@ -71,6 +74,17 @@ UE4SS_FILE = "ue4ss_mods.txt"
 DISCORD = "https://discord.gg/BumVNYDUec"
 DISCORD_ICON = "rsdragonwilds_discord.png"
 NEXUS = "https://www.nexusmods.com/runescapedragonwilds/mods"
+GITHUB_REPO = "relichunter4life/Dragonwilds-MO2"
+GITHUB_LATEST = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
+GITHUB_RELEASES = f"https://github.com/{GITHUB_REPO}/releases/latest"
+GITHUB_DOWNLOAD = f"https://github.com/{GITHUB_REPO}/releases/download/"
+UPDATE_ZIP = re.compile(r"^Dragonwilds-MO2-Support-(\d+(?:\.\d+)*)\.zip$", re.I)
+UPDATE_PLUGIN = "plugins/basic_games/games/game_rsdragonwilds.py"
+UPDATE_FOLDERS = ("plugins/basic_games/games/", "stylesheets/", "dragonwilds - source/")
+UPDATE_FILES = ("dragonwilds mo2 support - readme.txt", "dragonwilds - third-party.txt")
+UPDATE_MAX_BYTES = 30 * 1024 * 1024
+UPDATE_EVERY = 20 * 3600
+PENDING = ".rsdwnew"
 PAK_EXT = (".pak", ".utoc", ".ucas", ".sig")
 UE4SS_CORE_FILES = ("ue4ss.dll", "ue4ss-settings.ini", "ue4ss.pdb")
 RS_STRONG_DIRS = {
@@ -359,6 +373,91 @@ def download_origin(path: Path) -> tuple[str, str]:
     if "nexusmods.com" in low or "nexus-cdn.com" in low:
         return "nexus", ""
     return "", ""
+
+
+def version_tuple(text: str) -> tuple[int, ...]:
+    return tuple(int(n) for n in re.findall(r"\d+", text or "")[:4])
+
+
+def update_asset(release: dict) -> tuple[str, str, int] | None:
+    tag = str(release.get("tag_name") or "")
+    if release.get("draft") or release.get("prerelease") or not version_tuple(tag):
+        return None
+    for asset in release.get("assets") or []:
+        name = str(asset.get("name") or "")
+        url = str(asset.get("browser_download_url") or "")
+        found = UPDATE_ZIP.match(name)
+        if found and version_tuple(found.group(1)) == version_tuple(tag) and url.startswith(GITHUB_DOWNLOAD):
+            return tag.lstrip("vV"), url, int(asset.get("size") or 0)
+    return None
+
+
+def update_members(archive: zipfile.ZipFile) -> list[zipfile.ZipInfo] | None:
+    members = []
+    for info in archive.infolist():
+        if info.is_dir():
+            continue
+        name = info.filename.replace("\\", "/")
+        parts = name.split("/")
+        if name.startswith("/") or ":" in name or any(part in ("", ".", "..") for part in parts):
+            return None
+        low = name.casefold()
+        if not (low.startswith(UPDATE_FOLDERS) or low in UPDATE_FILES):
+            return None
+        members.append(info)
+    if not any(info.filename.replace("\\", "/") == UPDATE_PLUGIN for info in members):
+        return None
+    return members
+
+
+def apply_update(data: bytes, base: Path) -> tuple[int, int]:
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        members = update_members(archive)
+        if members is None:
+            raise ValueError("the update has files it should not have")
+        staged: list[tuple[Path, Path]] = []
+        try:
+            for info in members:
+                target = base.joinpath(*info.filename.replace("\\", "/").split("/"))
+                content = archive.read(info)
+                try:
+                    if target.is_file() and target.read_bytes() == content:
+                        continue
+                except OSError:
+                    pass
+                target.parent.mkdir(parents=True, exist_ok=True)
+                temp = target.with_name(target.name + PENDING)
+                temp.write_bytes(content)
+                staged.append((temp, target))
+        except Exception:
+            for temp, _target in staged:
+                temp.unlink(missing_ok=True)
+            raise
+    staged.sort(key=lambda pair: pair[1].name.casefold() == Path(UPDATE_PLUGIN).name)
+    changed = pending = 0
+    for temp, target in staged:
+        try:
+            os.replace(temp, target)
+            changed += 1
+        except PermissionError:
+            pending += 1
+    return changed, pending
+
+
+def finish_pending_update(base: Path) -> int:
+    done = 0
+    for folder in ("plugins/basic_games/games", "stylesheets", "Dragonwilds - Source", "."):
+        root = base / folder
+        if not root.is_dir():
+            continue
+        found = root.glob(f"*{PENDING}") if folder == "." else root.rglob(f"*{PENDING}")
+        for temp in found:
+            try:
+                os.replace(temp, temp.with_name(temp.name[: -len(PENDING)]))
+                done += 1
+            except OSError:
+                pass
+    return done
 
 
 def read_order(path: Path) -> list[tuple[str, bool]]:
@@ -1222,7 +1321,7 @@ class RuneSchemaTab(QWidget):
 class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagnose):
     Name = PLUGIN_NAME
     Author = "Relic Hunter"
-    Version = "1.0.1"
+    Version = "1.0.2"
     Description = (
         "Adds RuneScape: Dragonwilds to Mod Organizer 2: UE4SS Lua mods, RuneSchema mods "
         "and pak mods, with a RuneSchema load order tab that writes runeschema.txt."
@@ -1239,7 +1338,7 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
     _LOCAL = os.environ.get("LOCALAPPDATA", os.path.expanduser("~/AppData/Local")).replace("\\", "/")
     GameDocumentsDirectory = _LOCAL + "/RSDragonwilds/Saved/Config/Windows"
     GameSavesDirectory = _LOCAL + "/RSDragonwilds/Saved/SaveGames"
-    GameIniFiles = ["Engine.ini", "GameUserSettings.ini", "Input.ini"]
+    GameIniFiles: list[str] = []
     GameSupportURL = "https://www.nexusmods.com/runescapedragonwilds"
     NOT_SAVES = {"enhancedinputusersettings.sav"}
 
@@ -1266,9 +1365,16 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
         self._running = False
         self._busy = False
         self._main = None
+        self._net: QNetworkAccessManager | None = None
+        self._update_reply: QNetworkReply | None = None
+        self._update_progress: QProgressDialog | None = None
 
     def init(self, organizer: mobase.IOrganizer) -> bool:
         super().init(organizer)
+        try:
+            finish_pending_update(Path(QCoreApplication.applicationDirPath()))
+        except Exception:
+            pass
         fonts = Path(QCoreApplication.applicationDirPath(), "stylesheets", "Transparent-Style", "Dragonwilds", "fonts")
         if fonts.is_dir():
             for ttf in sorted(fonts.glob("*.ttf")):
@@ -1393,6 +1499,21 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
                 "welcome_shown",
                 "The Getting started window was shown (untick to see it again).",
                 False,
+            ),
+            mobase.PluginSetting(
+                "check_updates",
+                "Once a day, check GitHub for a newer Dragonwilds MO2 and offer to install it.",
+                True,
+            ),
+            mobase.PluginSetting(
+                "update_checked",
+                "When the last update check ran (empty it to check on next start).",
+                "",
+            ),
+            mobase.PluginSetting(
+                "skip_version",
+                "An update version you chose to skip (empty it to be offered that version again).",
+                "",
             ),
         ]
 
@@ -1527,6 +1648,7 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
             self._start_forwarder(main_window)
         self._main = main_window
         QTimer.singleShot(4000, self._query_missing_info)
+        QTimer.singleShot(8000, self._check_update)
         self.sync_now()
 
     def _query_missing_info(self):
@@ -1721,6 +1843,178 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
             f"<p>Need help? <a href='{link}'>Join our Discord</a></p>"
         )
         box.exec()
+
+    def _network(self) -> QNetworkAccessManager:
+        if self._net is None:
+            self._net = QNetworkAccessManager()
+        return self._net
+
+    @staticmethod
+    def _request(url: str) -> QNetworkRequest:
+        request = QNetworkRequest(QUrl(url))
+        request.setRawHeader(b"User-Agent", b"Dragonwilds-MO2")
+        request.setAttribute(
+            QNetworkRequest.Attribute.RedirectPolicyAttribute,
+            QNetworkRequest.RedirectPolicy.NoLessSafeRedirectPolicy,
+        )
+        request.setTransferTimeout(30000)
+        return request
+
+    def _check_update(self):
+        try:
+            if not self.isActive() or not self._setting("check_updates") or self._running:
+                return
+            if self._update_reply is not None:
+                return
+            try:
+                last = float(self._organizer.pluginSetting(self.name(), "update_checked") or 0)
+            except (TypeError, ValueError):
+                last = 0.0
+            if 0 < time.time() - last < UPDATE_EVERY:
+                return
+            request = self._request(GITHUB_LATEST)
+            request.setRawHeader(b"Accept", b"application/vnd.github+json")
+            reply = self._network().get(request)
+            self._update_reply = reply
+            reply.finished.connect(lambda: self._on_release(reply))
+        except Exception:
+            self._update_reply = None
+
+    def _on_release(self, reply: QNetworkReply):
+        self._update_reply = None
+        try:
+            if reply.error() != QNetworkReply.NetworkError.NoError:
+                return
+            release = json.loads(bytes(reply.readAll()).decode("utf-8"))
+            self._organizer.setPluginSetting(self.name(), "update_checked", str(int(time.time())))
+            found = update_asset(release) if isinstance(release, dict) else None
+            if found is None:
+                return
+            version, url, size = found
+            if version_tuple(version) <= version_tuple(self.Version):
+                return
+            if version == str(self._organizer.pluginSetting(self.name(), "skip_version") or ""):
+                return
+            page = str(release.get("html_url") or GITHUB_RELEASES)
+            self._ask_update(version, url, size, str(release.get("body") or ""), page)
+        except Exception:
+            pass
+        finally:
+            reply.deleteLater()
+
+    def _ask_update(self, version: str, url: str, size: int, notes: str, page: str):
+        box = QMessageBox(self._main)
+        box.setIcon(QMessageBox.Icon.Information)
+        box.setWindowTitle("Dragonwilds MO2 update")
+        box.setTextFormat(Qt.TextFormat.RichText)
+        box.setText(
+            f"<h3>Dragonwilds MO2 {html.escape(version)} is out</h3>"
+            f"<p>You have {html.escape(self.Version)}. Update now?</p>"
+            "<p>MO2 downloads it from GitHub and replaces only the Dragonwilds plugin and theme files. "
+            "Your mods, profiles, downloads and settings are not touched.</p>"
+        )
+        if notes.strip():
+            box.setDetailedText(notes.strip())
+        update = box.addButton("Update now", QMessageBox.ButtonRole.AcceptRole)
+        box.addButton("Later", QMessageBox.ButtonRole.RejectRole)
+        skip = box.addButton("Skip this version", QMessageBox.ButtonRole.ActionRole)
+        box.setDefaultButton(update)
+        box.exec()
+        clicked = box.clickedButton()
+        if clicked is skip:
+            self._organizer.setPluginSetting(self.name(), "skip_version", version)
+        elif clicked is update:
+            self._download_update(version, url, size, page)
+
+    def _download_update(self, version: str, url: str, size: int, page: str):
+        if self._running:
+            QMessageBox.information(
+                self._main, "Dragonwilds MO2 update", "Close the game first. MO2 offers the update again on its next start."
+            )
+            return
+        if size > UPDATE_MAX_BYTES:
+            self._update_failed(page, "the download is larger than expected")
+            return
+        progress = QProgressDialog(f"Downloading Dragonwilds MO2 {version} ...", "Cancel", 0, 0, self._main)
+        progress.setWindowTitle("Dragonwilds MO2 update")
+        progress.setWindowModality(Qt.WindowModality.WindowModal)
+        progress.setMinimumDuration(0)
+        reply = self._network().get(self._request(url))
+        self._update_reply = reply
+        self._update_progress = progress
+        progress.canceled.connect(reply.abort)
+        reply.downloadProgress.connect(self._on_update_progress)
+        reply.finished.connect(lambda: self._on_update_downloaded(reply, version, page))
+        progress.show()
+
+    def _on_update_progress(self, done: int, total: int):
+        try:
+            reply, progress = self._update_reply, self._update_progress
+            if reply is None:
+                return
+            if done > UPDATE_MAX_BYTES or total > UPDATE_MAX_BYTES:
+                reply.abort()
+                return
+            if progress is not None and total > 0:
+                progress.setMaximum(int(total))
+                progress.setValue(int(done))
+        except Exception:
+            pass
+
+    def _on_update_downloaded(self, reply: QNetworkReply, version: str, page: str):
+        self._update_reply = None
+        progress, self._update_progress = self._update_progress, None
+        try:
+            if progress is not None:
+                progress.canceled.disconnect()
+                progress.reset()
+                progress.deleteLater()
+            error = reply.error()
+            if error == QNetworkReply.NetworkError.OperationCanceledError:
+                return
+            if error != QNetworkReply.NetworkError.NoError:
+                self._update_failed(page, reply.errorString())
+                return
+            data = bytes(reply.readAll())
+            if not data or len(data) > UPDATE_MAX_BYTES:
+                self._update_failed(page, "the download was empty or too large")
+                return
+            if self._running:
+                self._update_failed(page, "the game was started during the download")
+                return
+            changed, pending = apply_update(data, Path(QCoreApplication.applicationDirPath()))
+            self._organizer.setPluginSetting(self.name(), "skip_version", "")
+            later = f" {pending} file(s) in use are swapped in on the next start." if pending else ""
+            QMessageBox.information(
+                self._main,
+                "Dragonwilds MO2 update",
+                f"Dragonwilds MO2 is updated to {version} ({changed + pending} files changed).{later}\n\n"
+                "Close Mod Organizer and open it again to finish.",
+            )
+        except PermissionError as exc:
+            self._update_failed(page, f"Windows would not let MO2 write {exc.filename or 'its files'}")
+        except Exception as exc:
+            self._update_failed(page, str(exc) or type(exc).__name__)
+        finally:
+            reply.deleteLater()
+
+    def _update_failed(self, page: str, why: str):
+        try:
+            box = QMessageBox(self._main)
+            box.setIcon(QMessageBox.Icon.Warning)
+            box.setWindowTitle("Dragonwilds MO2 update")
+            box.setText(
+                f"The update could not be installed: {why}.\n\n"
+                "You can install it by hand: close MO2, then unzip the Dragonwilds-MO2-Support zip "
+                "from the download page into your MO2 folder and overwrite."
+            )
+            open_page = box.addButton("Open download page", QMessageBox.ButtonRole.AcceptRole)
+            box.addButton("Close", QMessageBox.ButtonRole.RejectRole)
+            box.exec()
+            if box.clickedButton() is open_page:
+                QDesktopServices.openUrl(QUrl(page))
+        except Exception:
+            pass
 
     def _add_discord(self, main_window: QMainWindow):
         bar = main_window.findChild(QToolBar, "toolBar")

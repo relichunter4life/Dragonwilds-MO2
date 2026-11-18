@@ -12,8 +12,8 @@ Get them from the [Releases](../../releases) page:
 
 | File | What it is |
 |---|---|
-| `Dragonwilds-MO2-Standalone-1.0.1.zip` | A complete, ready-to-go MO2 2.5.2 for Dragonwilds. Unzip it and start it. |
-| `Dragonwilds-MO2-Support-1.0.1.zip` | An add-on for an MO2 2.5.2 you already have. |
+| `Dragonwilds-MO2-Standalone-1.0.2.zip` | A complete, ready-to-go MO2 2.5.2 for Dragonwilds. Unzip it and start it. |
+| `Dragonwilds-MO2-Support-1.0.2.zip` | An add-on for an MO2 2.5.2 you already have. |
 
 ## Supported files from Nexus
 
@@ -39,7 +39,8 @@ Install these in MO2 first. Dragonwilds MO2 locks them at the top of your mod li
   - Auto-install is optional and off by default.
 - **Categories and separators:** Nexus's Dragonwilds categories, with matching separators in the mod list. Short how-to notes are added to Relic Hunter's mods.
 - **Tidy Overwrite:** logs and data the game writes go back into the mod that owns them.
-- **Like other MO2 games:** profile-specific saves and INI files (Engine, GameUserSettings, Input), and save game listing.
+- **Same game settings as Steam:** the game always reads its normal settings files, so graphics and keys match a Steam start. Profile-specific saves and save game listing work like other MO2 games.
+- **Updates itself:** once a day the plugin checks this repository's latest release and offers *Update now*. It replaces only the Dragonwilds plugin and theme files (setting `check_updates`).
 - **Theme:** a Dragonwilds theme and splash, plus a Discord button.
 
 ## Install
