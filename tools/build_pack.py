@@ -3,7 +3,7 @@ import os
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 OUT = os.path.join(ROOT, "release", f"Dragonwilds-MO2-Support-{VERSION}.zip")
 
 

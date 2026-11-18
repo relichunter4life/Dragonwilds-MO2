@@ -1222,7 +1222,7 @@ class RuneSchemaTab(QWidget):
 class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagnose):
     Name = PLUGIN_NAME
     Author = "Relic Hunter"
-    Version = "1.0.0"
+    Version = "1.0.1"
     Description = (
         "Adds RuneScape: Dragonwilds to Mod Organizer 2: UE4SS Lua mods, RuneSchema mods "
         "and pak mods, with a RuneSchema load order tab that writes runeschema.txt."
@@ -1231,7 +1231,6 @@ class RSDragonwildsGame(BasicGame, mobase.IPluginFileMapper, mobase.IPluginDiagn
     GameName = "RuneScape: Dragonwilds"
     GameShortName = "runescapedragonwilds"
     GameNexusName = "runescapedragonwilds"
-    GameValidShortNames = ["rsdragonwilds", "dragonwilds"]
     GameNexusId = 7597
     GameSteamId = 1374490
     GameBinary = LAUNCHER

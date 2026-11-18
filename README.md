@@ -13,7 +13,7 @@ Get them from the [Releases](../../releases) page:
 | File | What it is |
 |---|---|
 | `Dragonwilds-MO2-Standalone-1.0.1.zip` | A complete, ready-to-go MO2 2.5.2 for Dragonwilds. Unzip it and start it. |
-| `Dragonwilds-MO2-Support-1.0.0.zip` | An add-on for an MO2 2.5.2 you already have. |
+| `Dragonwilds-MO2-Support-1.0.1.zip` | An add-on for an MO2 2.5.2 you already have. |
 
 ## Supported files from Nexus
 

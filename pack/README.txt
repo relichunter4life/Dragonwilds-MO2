@@ -1,6 +1,6 @@
 Made by Claude Ai & Relic Hunter
 
-RuneScape: Dragonwilds - Mod Organizer 2 Support 1.0.0
+RuneScape: Dragonwilds - Mod Organizer 2 Support 1.0.1
 =======================================================
 
 Mod Organizer 2 (MO2) keeps every mod in its own folder instead of copying it into the game.
