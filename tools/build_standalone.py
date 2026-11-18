@@ -4,7 +4,7 @@ import sys
 import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 MO2 = sys.argv[1] if len(sys.argv) > 1 else r"D:\Modding\MO2-Dragonwilds"
 TOP = "Dragonwilds MO2"
 OUT = os.path.join(ROOT, "release", f"Dragonwilds-MO2-Standalone-{VERSION}.zip")
@@ -14,6 +14,7 @@ SKIP_FILES = {
     "categories.dat", "categories.dat.mo2default", "nexuscatmap.dat",
 }
 GAMES = "plugins/basic_games/games/"
+LEFT_OUT = ("plugins/installer_omod/", "plugins/installer_fomod_csharp.dll")
 OWNED = (
     "stylesheets/transparent-style/dragonwilds/",
     "stylesheets/transparent-style-dragonwilds.qss",
@@ -58,7 +59,7 @@ def program_files():
             if name.endswith(".pyc"):
                 continue
             arc = os.path.normpath(os.path.join(rel, name)).replace("\\", "/")
-            if arc.casefold().startswith(OWNED):
+            if arc.casefold().startswith(OWNED) or arc.casefold().startswith(LEFT_OUT):
                 continue
             path = os.path.join(base, name)
             if os.path.getmtime(path) > MO2_RELEASED:

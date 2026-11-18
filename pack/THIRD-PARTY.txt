@@ -12,7 +12,8 @@ A copy of the GPL v3 is in MO2's licenses folder (GPL-v3.0.txt).
 
 MOD ORGANIZER 2 (stand-alone download only)
 The stand-alone download contains the unmodified official Mod Organizer 2 v2.5.2 release
-by the Mod Organizer 2 team, licensed under the GPL v3. Source code:
+by the Mod Organizer 2 team, licensed under the GPL v3, minus two Bethesda-only installer
+plugins (installer_omod, installer_fomod_csharp) that Dragonwilds never uses. Source code:
 - https://github.com/ModOrganizer2/modorganizer/releases/tag/v2.5.2
 - All component sources (uibase, usvfs, plugin_python, basic_games, installers, game plugins):
   https://github.com/ModOrganizer2

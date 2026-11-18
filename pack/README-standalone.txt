@@ -1,6 +1,6 @@
 Made by Claude Ai & Relic Hunter
 
-RuneScape: Dragonwilds - Mod Organizer 2 (Stand-alone) 1.0.0
+RuneScape: Dragonwilds - Mod Organizer 2 (Stand-alone) 1.0.1
 =============================================================
 
 A ready-to-go Mod Organizer 2 (MO2) for Dragonwilds. Unzip it, start it, download mods
@@ -88,11 +88,15 @@ PROBLEMS
 - Antivirus: rsdragonwilds_ue4ss_boot.dll (in plugins\basic_games\games) is a 1.5 KB helper
   that makes UE4SS start before the game engine. Its full source is in
   "Dragonwilds - Source\build_bootstrap_dll.py". If your antivirus blocks it, allow it.
+- "Mod Organizer failed to load the plugin ..." at start: click "Blacklist this plugin".
+  Dragonwilds never needs MO2's Bethesda-only installers (OMOD, FOMOD C#), so 1.0.1 leaves
+  them out.
 - Discord: discord.gg/BumVNYDUec (or the Discord button in MO2)
 
 UNINSTALL
 Delete the "Dragonwilds MO2" folder. Your game folder needs nothing removed (see above).
 
 Mod Organizer 2 is free software (GPLv3) by the Mod Organizer 2 team. This is the official
-2.5.2 release with our Dragonwilds game plugin and theme added. Licenses are in the licenses
+2.5.2 release with our Dragonwilds game plugin and theme added, minus the Bethesda-only OMOD
+and FOMOD C# installers. Licenses are in the licenses
 folder; sources and credits are listed in "Dragonwilds - THIRD-PARTY.txt".
